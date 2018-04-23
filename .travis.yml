@@ -1,5 +1,5 @@
 language: csharp
-solution: MonetaVerdeWalletC.sln
+solution: SHCWalletC.sln
 matrix:
   include:
     - os: linux
