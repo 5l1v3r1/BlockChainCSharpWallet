@@ -26,9 +26,9 @@ namespace MonetaVerdeWalletC
 			byte[] privateViewKey	= KeyManager.GeneratePrivateViewKey(_passCode, privateSpendKey);		//Done
 			byte[] publicSpendKey	= KeyManager.GeneratePubSpendKey(privateSpendKey);						//Done
 			byte[] publicViewKey	= KeyManager.GeneratePubViewKey(privateViewKey);                        //Done
-			byte[] networkByte = new byte[1];//KeyManager.StringToByteArray("0x12");//("0x1A2B");			//Done (Should start with Vd)
-			networkByte[0] = 18;
-			byte[] hashedKey		= KeyManager.HashKeccak256(publicSpendKey, publicViewKey, networkByte); //Done
+			byte[] networkByte      = KeyManager.StringToByteArray("0x42ca");//0x12			                //Done (Should start with Vd)
+            //networkByte[0] = 18;
+            byte[] hashedKey		= KeyManager.HashKeccak256(publicSpendKey, publicViewKey, networkByte); //Done
 			string publicAddress    = KeyManager.ConvertToPubAddressChunked(hashedKey);                     //Done
 			
 			return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
