@@ -73,9 +73,9 @@ namespace MonetaVerdeWalletC
 		public static byte[] HashKeccak256(byte[] publicSpendKey, byte[] publicViewKey, byte[] networkByte)
 		{
 			//We need 69 bytes: 65 from the public spend key, public view key and networkbyte + 4 from the hashing of keccak
-			byte[] origByteSet = new byte[65];	//Monero is 65, but we have 67 for MonetaVerde due to its hex network byte structure
+			byte[] origByteSet = new byte[67];	//Monero is 65, but we have 67 for MonetaVerde due to its hex network byte structure
 			byte[] hashFirst4 = new byte[4];
-			byte[] ret = new byte[69];
+			byte[] ret = new byte[71];
 			System.Buffer.BlockCopy(networkByte, 0, origByteSet, 0, networkByte.Length);
 			System.Buffer.BlockCopy(publicSpendKey, 0, origByteSet, networkByte.Length, publicSpendKey.Length);
 			System.Buffer.BlockCopy(publicViewKey, 0, origByteSet, networkByte.Length + publicSpendKey.Length, publicViewKey.Length);

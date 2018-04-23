@@ -6,7 +6,7 @@ namespace MonetaVerdeWalletC
     {
         string []                       inboundArgs;
         Boolean                         isLoggedIn = false;
-        String                          daemonIPPort = "127.0.0.1:26081";   //Expect localhost
+        String                          daemonIPPort = "127.0.0.1:51485";   //Expect localhost
 		Boolean							connectionStable = true;
 
         public void Run(string[] args)
