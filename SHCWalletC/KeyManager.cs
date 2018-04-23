@@ -9,8 +9,8 @@ namespace MonetaVerdeWalletC
     class KeyManager
     {
 		/*OK, as far as I figured out now we need to do the following:
-		- Step 1: Generate private spend key (random 32 bit 64 chars)
-		- Step 2: Generate private view key (random 32 bit 64 chars)
+		- Step 1: Generate private spend key
+		- Step 2: Generate private view key
 		- Step 3: Generate public spend key (ed25519 scalarmult)
 		- Step 4: Generate public view key (ed25519 scalarmult)
 		- Step 5: Add network byte to public spend and view key (For monetaverde: 0x1A2B // addresses start with "Vd")
