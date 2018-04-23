@@ -51,7 +51,7 @@ namespace MonetaVerdeWalletC
         }
         public static void TestRPCJsonGet()
         {
-            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:26081/getinfo");
+            HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:51485/getinfo");
             httpWebRequest.Method = WebRequestMethods.Http.Get;
             httpWebRequest.Accept = "application/json";
 
