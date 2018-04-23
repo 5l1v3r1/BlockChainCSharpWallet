@@ -1,13 +1,17 @@
-﻿
-namespace MonetaVerdeWalletC
+﻿using System;
+using System.Windows.Forms;
+using SHCWalletC.GUI;
+
+namespace SHCWalletC
 {
     public class Program
     {
-        static void Main(string[] args)
+        [STAThread]
+        static void Main()
         {
-            //Open the application
-            Wallet wallet = new Wallet();
-            wallet.Run(args);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Main());
         }
     }
 }

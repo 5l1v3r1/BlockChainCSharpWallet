@@ -8,8 +8,8 @@
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RuntimeIdentifiers>win10-x64;osx.10.12-x64;ubuntu.8-x64</RuntimeIdentifiers>
-    <RootNamespace>MonetaVerdeWalletC</RootNamespace>
-    <AssemblyName>MonetaVerdeWalletC</AssemblyName>
+    <RootNamespace>SHCWalletC</RootNamespace>
+    <AssemblyName>SHCWalletC</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,7 +44,9 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Numerics" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -53,34 +55,41 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BlockChainManager.cs" />
+    <Compile Include="CORE\BlockChainManager.cs" />
     <Compile Include="Ed25519\Ed25519.cs" />
+    <Compile Include="GUI\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
     <Compile Include="JSON\Client.cs" />
     <Compile Include="JSON\Error.cs" />
-    <Compile Include="GenerateWallet.cs" />
+    <Compile Include="CORE\GenerateWallet.cs" />
     <Compile Include="JSON\GenericResponse.cs" />
-    <Compile Include="Help.cs" />
-    <Compile Include="KeyManager.cs" />
-    <Compile Include="LoginManager.cs" />
-    <Compile Include="PasswordManager.cs" />
+    <Compile Include="CORE\Help.cs" />
+    <Compile Include="CORE\KeyManager.cs" />
+    <Compile Include="CORE\LoginManager.cs" />
+    <Compile Include="CORE\PasswordManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="JSON\Request.cs" />
     <Compile Include="JSON\Response.cs" />
-    <Compile Include="RPCConnectionManager.cs" />
-    <Compile Include="SessionWebClient.cs">
+    <Compile Include="CORE\RPCConnectionManager.cs" />
+    <Compile Include="CORE\SessionWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="SettingsManager.cs" />
-    <Compile Include="TransactionManager.cs" />
-    <Compile Include="UserInteractionManager.cs" />
-    <Compile Include="Wallet.cs" />
-    <Compile Include="WalletFileManager.cs" />
+    <Compile Include="CORE\SettingsManager.cs" />
+    <Compile Include="CORE\TransactionManager.cs" />
+    <Compile Include="CORE\UserInteractionManager.cs" />
+    <Compile Include="CORE\Wallet.cs" />
+    <Compile Include="CORE\WalletFileManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
