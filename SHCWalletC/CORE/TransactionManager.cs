@@ -1,5 +1,5 @@
 ﻿
-namespace MonetaVerdeWalletC
+namespace SHCWalletC
 {
     class TransactionManager
     {

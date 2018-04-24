@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MonetaVerdeWalletC
+namespace SHCWalletC
 {
     class Wallet
     {
@@ -31,7 +31,7 @@ namespace MonetaVerdeWalletC
             setDaemonIpPort();
 			Console.WriteLine(KeyManager.GenerateKeySet());              //Test generating a key 
 
-			connectionStable = RPCConnectionManager.SendRPCJson("getblockcount", "");  //Params have to be filled. Todo later on
+			connectionStable = RPCConnectionManager.SendRPCJson("getblockcount", "") == null?false:true;  //Params have to be filled. Todo later on
 
 			if (!connectionStable)
 			{

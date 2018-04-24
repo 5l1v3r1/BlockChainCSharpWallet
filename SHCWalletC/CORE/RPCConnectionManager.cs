@@ -8,23 +8,25 @@ using Newtonsoft.Json.Linq;
 using System.Net;
 using System.IO;
 
-namespace MonetaVerdeWalletC
+namespace SHCWalletC
 {
     class RPCConnectionManager
     {
         //This class contains all code to interact with RPC
-        public static Boolean SendRPCJson(string _method, string _params)
+        public static GenericResponse SendRPCJson(string _method, string _params)
         {
             string daemonIp = SettingsManager.getAppSetting("daemonIPPort");
             string URL = "http://" + daemonIp + "/json_rpc";    //Get parameter for IP+Port
 			Boolean ret = true;
+            GenericResponse response;
 
             using (Client rpcClient = new Client(URL))
             {
                 JArray parameters = JArray.Parse(@"['9000']");  //TODO: set parameters
 
                 Request request = rpcClient.NewRequest(_method, parameters);
-                GenericResponse response = rpcClient.Rpc(request);
+                //GenericResponse 
+                    response = rpcClient.Rpc(request);
 
 				if (response != null)
 				{
@@ -42,13 +44,14 @@ namespace MonetaVerdeWalletC
                 }
                 else
                 {
-					ret = false;
 					Console.WriteLine("Serious issues occured in connecting to the daemon, please check the setup or check if the daemon is running...");
+                    return null;
                 }
             }
 
-			return ret;
+			return response;
         }
+
         public static void TestRPCJsonGet()
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create("http://127.0.0.1:51485/getinfo");

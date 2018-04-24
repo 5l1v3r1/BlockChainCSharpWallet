@@ -4,7 +4,7 @@ using System;
 using Org.BouncyCastle.Crypto.Digests;
 
 
-namespace MonetaVerdeWalletC
+namespace SHCWalletC
 {
     class KeyManager
     {

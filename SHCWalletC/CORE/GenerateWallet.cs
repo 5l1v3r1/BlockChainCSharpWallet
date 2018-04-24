@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MonetaVerdeWalletC
+namespace SHCWalletC
 {
     class GenerateWallet
     {

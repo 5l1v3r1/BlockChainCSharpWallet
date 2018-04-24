@@ -2,7 +2,7 @@
 using System.Security.Cryptography;
 using System.Linq;
 
-namespace MonetaVerdeWalletC
+namespace SHCWalletC
 {
     class PasswordManager
     {
