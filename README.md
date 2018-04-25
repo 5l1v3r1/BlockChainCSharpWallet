@@ -6,7 +6,7 @@ GITHUB:     https://github.com/GrumpyBum/harrier.coin<BR><BR>
 Travis link: https://travis-ci.org/JohnJohnssonnl/SHCWalletInC<BR>
 Travis Build status:   ![alt text](https://travis-ci.org/JohnJohnssonnl/SHCWalletInC.svg?branch=master)<BR><BR>
 Build in Windows: <BR>
-- Install Visual Studio 2015 Community<BR>
+- Install Visual Studio 2015/2017 Community<BR>
 - Open project .SLN<BR>
 - Build :-P<BR><BR>
   
