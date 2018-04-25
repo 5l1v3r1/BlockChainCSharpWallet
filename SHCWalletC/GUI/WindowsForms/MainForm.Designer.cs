@@ -42,6 +42,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.LoginButton = new System.Windows.Forms.Button();
+            this.PreferencesButton = new System.Windows.Forms.Button();
+            this.AboutButton = new System.Windows.Forms.Button();
+            this.PaymentDescriptionTextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -52,7 +56,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(-1, 429);
+            this.pictureBox1.Location = new System.Drawing.Point(-1, 474);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(744, 63);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -63,7 +67,7 @@
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(825, 301);
+            this.pictureBox2.Location = new System.Drawing.Point(825, 346);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(116, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -86,19 +90,21 @@
             this.LabelAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelAddress.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelAddress.ForeColor = System.Drawing.Color.White;
-            this.LabelAddress.Location = new System.Drawing.Point(42, 108);
+            this.LabelAddress.Location = new System.Drawing.Point(42, 153);
             this.LabelAddress.MaximumSize = new System.Drawing.Size(200, 0);
             this.LabelAddress.Name = "LabelAddress";
             this.LabelAddress.Size = new System.Drawing.Size(197, 45);
             this.LabelAddress.TabIndex = 4;
             this.LabelAddress.Text = "ashDSArjJae2GKzAo2783RCkBzk7UUCukLV9rXRmAByWdRdTYLXFeag7kjqc361rbt19uaEtQL6JxDyAn" +
     "RoEoYCD4Lmt7MiFDZ";
+            this.LabelAddress.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LabelAddress.UseCompatibleTextRendering = true;
+            this.LabelAddress.Click += new System.EventHandler(this.LabelAddress_Click);
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.pictureBox4.Location = new System.Drawing.Point(733, 0);
+            this.pictureBox4.Location = new System.Drawing.Point(733, 45);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(287, 430);
             this.pictureBox4.TabIndex = 8;
@@ -107,7 +113,7 @@
             // QRReceive
             // 
             this.QRReceive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.QRReceive.Location = new System.Drawing.Point(42, 190);
+            this.QRReceive.Location = new System.Drawing.Point(42, 235);
             this.QRReceive.Name = "QRReceive";
             this.QRReceive.Size = new System.Drawing.Size(184, 171);
             this.QRReceive.TabIndex = 9;
@@ -119,7 +125,7 @@
             this.LabelSendAddress.BackColor = System.Drawing.Color.MediumPurple;
             this.LabelSendAddress.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LabelSendAddress.ForeColor = System.Drawing.Color.White;
-            this.LabelSendAddress.Location = new System.Drawing.Point(735, 0);
+            this.LabelSendAddress.Location = new System.Drawing.Point(735, 45);
             this.LabelSendAddress.MinimumSize = new System.Drawing.Size(285, 50);
             this.LabelSendAddress.Name = "LabelSendAddress";
             this.LabelSendAddress.Size = new System.Drawing.Size(285, 50);
@@ -130,7 +136,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(792, 108);
+            this.textBox1.Location = new System.Drawing.Point(792, 124);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(200, 33);
             this.textBox1.TabIndex = 11;
@@ -139,20 +145,21 @@
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.button1.Location = new System.Drawing.Point(792, 190);
+            this.button1.Location = new System.Drawing.Point(792, 249);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(200, 42);
             this.button1.TabIndex = 12;
             this.button1.Text = "Send coins";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
+            this.pictureBox3.Location = new System.Drawing.Point(-1, 45);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(280, 430);
             this.pictureBox3.TabIndex = 13;
@@ -164,7 +171,7 @@
             this.label1.BackColor = System.Drawing.Color.MediumPurple;
             this.label1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(-3, 2);
+            this.label1.Location = new System.Drawing.Point(-3, 47);
             this.label1.MinimumSize = new System.Drawing.Size(285, 50);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(285, 50);
@@ -178,7 +185,7 @@
             this.label2.BackColor = System.Drawing.Color.MediumSlateBlue;
             this.label2.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(277, 0);
+            this.label2.Location = new System.Drawing.Point(277, 45);
             this.label2.MinimumSize = new System.Drawing.Size(457, 50);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(457, 50);
@@ -192,7 +199,7 @@
             this.label3.BackColor = System.Drawing.Color.MediumPurple;
             this.label3.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(735, 430);
+            this.label3.Location = new System.Drawing.Point(735, 474);
             this.label3.MinimumSize = new System.Drawing.Size(285, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(285, 60);
@@ -200,12 +207,66 @@
             this.label3.Text = "BlockHeight: 0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // LoginButton
+            // 
+            this.LoginButton.BackColor = System.Drawing.Color.Gray;
+            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LoginButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LoginButton.ForeColor = System.Drawing.Color.White;
+            this.LoginButton.Location = new System.Drawing.Point(0, 0);
+            this.LoginButton.Name = "LoginButton";
+            this.LoginButton.Size = new System.Drawing.Size(280, 46);
+            this.LoginButton.TabIndex = 17;
+            this.LoginButton.Text = "Login";
+            this.LoginButton.UseVisualStyleBackColor = false;
+            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            // 
+            // PreferencesButton
+            // 
+            this.PreferencesButton.BackColor = System.Drawing.Color.Silver;
+            this.PreferencesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PreferencesButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PreferencesButton.ForeColor = System.Drawing.Color.White;
+            this.PreferencesButton.Location = new System.Drawing.Point(277, 0);
+            this.PreferencesButton.Name = "PreferencesButton";
+            this.PreferencesButton.Size = new System.Drawing.Size(457, 46);
+            this.PreferencesButton.TabIndex = 18;
+            this.PreferencesButton.Text = "Preferences";
+            this.PreferencesButton.UseVisualStyleBackColor = false;
+            // 
+            // AboutButton
+            // 
+            this.AboutButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.AboutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AboutButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AboutButton.ForeColor = System.Drawing.Color.White;
+            this.AboutButton.Location = new System.Drawing.Point(733, 0);
+            this.AboutButton.Name = "AboutButton";
+            this.AboutButton.Size = new System.Drawing.Size(287, 46);
+            this.AboutButton.TabIndex = 19;
+            this.AboutButton.Text = "About";
+            this.AboutButton.UseVisualStyleBackColor = false;
+            // 
+            // PaymentDescriptionTextBox
+            // 
+            this.PaymentDescriptionTextBox.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PaymentDescriptionTextBox.Location = new System.Drawing.Point(792, 184);
+            this.PaymentDescriptionTextBox.Name = "PaymentDescriptionTextBox";
+            this.PaymentDescriptionTextBox.Size = new System.Drawing.Size(200, 33);
+            this.PaymentDescriptionTextBox.TabIndex = 20;
+            this.PaymentDescriptionTextBox.Text = "Payment description";
+            this.PaymentDescriptionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1017, 489);
+            this.ClientSize = new System.Drawing.Size(1017, 533);
+            this.Controls.Add(this.PaymentDescriptionTextBox);
+            this.Controls.Add(this.AboutButton);
+            this.Controls.Add(this.PreferencesButton);
+            this.Controls.Add(this.LoginButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -219,6 +280,7 @@
             this.Controls.Add(this.LabelWalletAddress);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox3);
+            this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "SHC Harrier Coin Core Wallet C#";
             this.Load += new System.EventHandler(this.MainForm_Load);
@@ -247,5 +309,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Button PreferencesButton;
+        private System.Windows.Forms.Button AboutButton;
+        private System.Windows.Forms.TextBox PaymentDescriptionTextBox;
     }
 }

@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Windows.Forms;
 using SHCWalletC.CORE;
+using SHCWalletC.GUI.WindowsForms;
 
 namespace SHCWalletC.GUI
 {
@@ -42,6 +43,21 @@ namespace SHCWalletC.GUI
         private void LabelYourWallet_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void LabelAddress_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(LabelAddress.Text);
+            MessageBox.Show("Copied address to clipboard");
+        }
+
+        private void LoginButton_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the Form2 class
+            Login loginForm = new Login();
+
+            // Show the settings form
+            loginForm.Show();
         }
     }
 }
