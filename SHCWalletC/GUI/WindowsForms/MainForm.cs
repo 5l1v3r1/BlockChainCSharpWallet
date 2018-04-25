@@ -4,6 +4,8 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Windows.Forms;
+using QRCoder;
+using SHCWalletC.CORE;
 
 namespace SHCWalletC.GUI
 {
@@ -18,6 +20,8 @@ namespace SHCWalletC.GUI
 
             SettingsManager.setAppSetting("daemonIPPort", daemonIPPort);    //Basic set IPPort
             DaemonBlockHeight.Text = Convert.ToString(RPCConnectionManager.SendRPCJson("getblockcount", ""));
+
+            QRReceive.Image = CORE.QRCodeManager.CreateQR(LabelAddress.Text, 3);    //Create QR based on wallet, later to be handled in the core classes
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -32,6 +36,11 @@ namespace SHCWalletC.GUI
         }
 
         private void LabelDaemonBlockHeight_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LabelYourWallet_Click(object sender, EventArgs e)
         {
 
         }

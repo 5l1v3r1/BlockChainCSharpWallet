@@ -16,8 +16,7 @@ namespace SHCWalletC
         public static GenericResponse SendRPCJson(string _method, string _params)
         {
             string daemonIp = SettingsManager.getAppSetting("daemonIPPort");
-            string URL = "http://" + daemonIp + "/json_rpc";    //Get parameter for IP+Port
-			Boolean ret = true;
+            string URL      = "http://" + daemonIp + "/json_rpc";    //Get parameter for IP+Port
             GenericResponse response;
 
             using (Client rpcClient = new Client(URL))

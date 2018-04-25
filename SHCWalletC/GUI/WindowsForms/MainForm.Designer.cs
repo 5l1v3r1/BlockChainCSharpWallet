@@ -37,9 +37,13 @@
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.LabelDaemonBlockHeight = new System.Windows.Forms.Label();
             this.DaemonBlockHeight = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.QRReceive = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QRReceive)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -55,7 +59,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(870, 0);
+            this.pictureBox2.Location = new System.Drawing.Point(531, 12);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(116, 70);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -68,11 +72,12 @@
             this.LabelYourWallet.AutoSize = true;
             this.LabelYourWallet.BackColor = System.Drawing.Color.Transparent;
             this.LabelYourWallet.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelYourWallet.Location = new System.Drawing.Point(12, 9);
+            this.LabelYourWallet.Location = new System.Drawing.Point(63, 39);
             this.LabelYourWallet.Name = "LabelYourWallet";
-            this.LabelYourWallet.Size = new System.Drawing.Size(176, 26);
+            this.LabelYourWallet.Size = new System.Drawing.Size(146, 26);
             this.LabelYourWallet.TabIndex = 2;
-            this.LabelYourWallet.Text = "Your wallet address";
+            this.LabelYourWallet.Text = "Receive address";
+            this.LabelYourWallet.Click += new System.EventHandler(this.LabelYourWallet_Click);
             // 
             // LabelWalletAddress
             // 
@@ -88,19 +93,21 @@
             this.LabelAddress.BackColor = System.Drawing.Color.Transparent;
             this.LabelAddress.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.LabelAddress.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelAddress.Location = new System.Drawing.Point(17, 39);
+            this.LabelAddress.Location = new System.Drawing.Point(42, 108);
+            this.LabelAddress.MaximumSize = new System.Drawing.Size(200, 0);
             this.LabelAddress.Name = "LabelAddress";
-            this.LabelAddress.Size = new System.Drawing.Size(563, 13);
+            this.LabelAddress.Size = new System.Drawing.Size(200, 45);
             this.LabelAddress.TabIndex = 4;
             this.LabelAddress.Text = "ashDSArjJae2GKzAo2783RCkBzk7UUCukLV9rXRmAByWdRdTYLXFeag7kjqc361rbt19uaEtQL6JxDyAn" +
     "RoEoYCD4Lmt7MiFDZ";
+            this.LabelAddress.UseCompatibleTextRendering = true;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
             this.pictureBox3.Location = new System.Drawing.Point(-1, 0);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(987, 70);
+            this.pictureBox3.Size = new System.Drawing.Size(283, 430);
             this.pictureBox3.TabIndex = 5;
             this.pictureBox3.TabStop = false;
             // 
@@ -126,12 +133,31 @@
             this.DaemonBlockHeight.TabIndex = 7;
             this.DaemonBlockHeight.Text = "0";
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            this.pictureBox4.Location = new System.Drawing.Point(737, 0);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(283, 430);
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
+            // 
+            // QRReceive
+            // 
+            this.QRReceive.Location = new System.Drawing.Point(42, 190);
+            this.QRReceive.Name = "QRReceive";
+            this.QRReceive.Size = new System.Drawing.Size(184, 171);
+            this.QRReceive.TabIndex = 9;
+            this.QRReceive.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(986, 484);
+            this.ClientSize = new System.Drawing.Size(1016, 509);
+            this.Controls.Add(this.QRReceive);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.DaemonBlockHeight);
             this.Controls.Add(this.LabelDaemonBlockHeight);
             this.Controls.Add(this.LabelAddress);
@@ -146,6 +172,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.QRReceive)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -161,5 +189,7 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label LabelDaemonBlockHeight;
         private System.Windows.Forms.Label DaemonBlockHeight;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox QRReceive;
     }
 }
