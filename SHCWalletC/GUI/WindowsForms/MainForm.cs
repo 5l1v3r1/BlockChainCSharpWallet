@@ -19,9 +19,9 @@ namespace SHCWalletC.GUI
             System.Windows.Forms.Control.CheckForIllegalCrossThreadCalls = false;
 
             SettingsManager.setAppSetting("daemonIPPort", daemonIPPort);    //Basic set IPPort
-            DaemonBlockHeight.Text = Convert.ToString(RPCConnectionManager.SendRPCJson("getblockcount", ""));
+            //DaemonBlockHeight.Text = Convert.ToString(RPCConnectionManager.SendRPCJson("getblockcount", ""));
 
-            QRReceive.Image = CORE.QRCodeManager.CreateQR(LabelAddress.Text, 3);    //Create QR based on wallet, later to be handled in the core classes
+            QRReceive.Image = QRCodeManager.CreateQR(LabelAddress.Text, 3);    //Create QR based on wallet, later to be handled in the core classes
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
