@@ -4,7 +4,6 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Windows.Forms;
-using QRCoder;
 using SHCWalletC.CORE;
 
 namespace SHCWalletC.GUI
