@@ -22,6 +22,8 @@ namespace SHCWalletC.GUI
             //DaemonBlockHeight.Text = Convert.ToString(RPCConnectionManager.SendRPCJson("getblockcount", ""));
 
             QRReceive.Image = QRCodeManager.CreateQR(LabelAddress.Text, 3);    //Create QR based on wallet, later to be handled in the core classes
+
+            KeyManager.GenerateKeySetDemo();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)

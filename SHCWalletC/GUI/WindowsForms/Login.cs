@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SHCWalletC.GUI.WindowsForms
@@ -34,6 +27,25 @@ namespace SHCWalletC.GUI.WindowsForms
             mayLogin = PassCodeTextbox.Text != "" && UserNameTextbox.Text != "";
 
             ButtonLogin.Enabled = mayLogin;
+        }
+
+        private void CreateNewWalletCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            ButtonLogin.Text = CreateNewWalletCheckbox.Checked ? "Generate" : "Login";
+        }
+
+        private void ButtonLogin_Click(object sender, EventArgs e)
+        {
+            LoginManager LoginMan = new LoginManager();  //Create object
+
+            LoginMan.ParmWalletUserName(UserNameTextbox.Text);
+            LoginMan.ParmPassCode(PassCodeTextbox.Text);
+            LoginMan.ParmCreateNewWallet(CreateNewWalletCheckbox.Checked);
+
+            if (LoginMan.Login())
+            {
+                this.Close();
+            }
         }
     }
 }

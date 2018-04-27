@@ -8,19 +8,21 @@ namespace SHCWalletC
 {
     class KeyManager
     {
-		/*OK, as far as I figured out now we need to do the following:
-		- Step 1: Generate private spend key
-		- Step 2: Generate private view key
-		- Step 3: Generate public spend key (ed25519 scalarmult)
-		- Step 4: Generate public view key (ed25519 scalarmult)
-		- Step 5: Add network byte to public spend and view key (For monetaverde: 0x1A2B // addresses start with "Vd")
-		- Step 6: this 65 byte needs to be hashed with keccak 256 
-		- Step 7: Add first 4 bytes from hashed value to the 65 bytes (at the end) 
-		- Step 8: Convert the 69 bytes to Base58
-		- Step 9: Maybe we'd like to have one "superkey" which unlocks private spend and view key...who knows
-		- Known bug: prefix
-		*/
-		public static String GenerateKeySet(string _passCode = "12345"/*TODO: Implement*/, string _userId = "123546789"/*TODO: Implement*/)
+        private static byte[] passHashStore;
+
+        /*OK, as far as I figured out now we need to do the following:
+- Step 1: Generate private spend key
+- Step 2: Generate private view key
+- Step 3: Generate public spend key (ed25519 scalarmult)
+- Step 4: Generate public view key (ed25519 scalarmult)
+- Step 5: Add network byte to public spend and view key (For monetaverde: 0x1A2B // addresses start with "Vd")
+- Step 6: this 65 byte needs to be hashed with keccak 256 
+- Step 7: Add first 4 bytes from hashed value to the 65 bytes (at the end) 
+- Step 8: Convert the 69 bytes to Base58
+- Step 9: Maybe we'd like to have one "superkey" which unlocks private spend and view key...who knows
+- Known bug: prefix
+*/
+        public static String GenerateKeySet(string _passCode = "12345"/*TODO: Implement*/, string _userId = "123546789"/*TODO: Implement*/)
 		{
 			byte[] privateSpendKey	= KeyManager.GeneratePrivateSpendKey(_passCode, _userId);				//Done	
 			byte[] privateViewKey	= KeyManager.GeneratePrivateViewKey(_passCode, privateSpendKey);		//Done
@@ -33,8 +35,27 @@ namespace SHCWalletC
 			
 			return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
 		}
+        public static String GenerateKeySetDemo(string _userId = "If you get this you understand something of IT"/*TODO: Implement*/)
+        {
+            byte[] privateSpendKey = KeyManager.GeneratePrivateSpendKey(_userId, _userId);                //Done	
+            byte[] privateViewKey = KeyManager.GeneratePrivateViewKey(_userId, privateSpendKey);      //Done
+            byte[] resultTotalKey = new byte[96];
 
-		public static byte[] GeneratePrivateSpendKey(string _passCode, string _userId)
+            System.Buffer.BlockCopy(privateSpendKey, 0, resultTotalKey, 0, privateSpendKey.Length);
+            System.Buffer.BlockCopy(privateViewKey, 0, resultTotalKey, privateViewKey.Length, privateViewKey.Length);
+
+            var pbkdf2 = new Rfc2898DeriveBytes(_userId, resultTotalKey, 10000);
+
+            passHashStore = pbkdf2.GetBytes(32);
+
+            System.Buffer.BlockCopy(passHashStore, 0, resultTotalKey, 64, passHashStore.Length);
+
+            string publicAddress = KeyManager.ConvertToPubAddressChunked(resultTotalKey);                     //Done
+
+            return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
+        }
+
+        public static byte[] GeneratePrivateSpendKey(string _passCode, string _userId)
 		{
 			byte[] bytes = Encoding.Unicode.GetBytes(_passCode+ _userId);
 			SHA256Managed hashstring = new SHA256Managed();

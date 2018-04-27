@@ -33,7 +33,7 @@
             this.PassCodeTextbox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.CreateNewWalletCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // ButtonLogin
@@ -48,6 +48,7 @@
             this.ButtonLogin.TabIndex = 0;
             this.ButtonLogin.Text = "Login";
             this.ButtonLogin.UseVisualStyleBackColor = false;
+            this.ButtonLogin.Click += new System.EventHandler(this.ButtonLogin_Click);
             // 
             // UserNameTextbox
             // 
@@ -92,17 +93,18 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Passcode";
             // 
-            // checkBox1
+            // CreateNewWalletCheckbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.checkBox1.Location = new System.Drawing.Point(121, 244);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(377, 30);
-            this.checkBox1.TabIndex = 5;
-            this.checkBox1.Text = "Check if you want to create a new wallet";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.CreateNewWalletCheckbox.AutoSize = true;
+            this.CreateNewWalletCheckbox.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateNewWalletCheckbox.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            this.CreateNewWalletCheckbox.Location = new System.Drawing.Point(121, 244);
+            this.CreateNewWalletCheckbox.Name = "CreateNewWalletCheckbox";
+            this.CreateNewWalletCheckbox.Size = new System.Drawing.Size(377, 30);
+            this.CreateNewWalletCheckbox.TabIndex = 5;
+            this.CreateNewWalletCheckbox.Text = "Check if you want to create a new wallet";
+            this.CreateNewWalletCheckbox.UseVisualStyleBackColor = true;
+            this.CreateNewWalletCheckbox.CheckedChanged += new System.EventHandler(this.CreateNewWalletCheckbox_CheckedChanged);
             // 
             // Login
             // 
@@ -110,7 +112,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(614, 378);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.CreateNewWalletCheckbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PassCodeTextbox);
@@ -130,6 +132,6 @@
         private System.Windows.Forms.TextBox PassCodeTextbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox CreateNewWalletCheckbox;
     }
 }

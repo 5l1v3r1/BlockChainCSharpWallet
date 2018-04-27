@@ -1,62 +1,58 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SHCWalletC
 {
     class LoginManager
     {
-        //this class will hold all required code for logging in to the wallet
-        public static Boolean Login()
+        String      WalletName;
+        String      passString;
+        Boolean     MustCreateWallet;
+
+        public string ParmWalletUserName(string _WalletName)
+        {
+            WalletName = _WalletName;
+
+            return WalletName;
+        }
+        public string ParmPassCode(string _passCode)
+        {
+            passString = _passCode;
+
+            return passString;
+        }
+        public Boolean ParmCreateNewWallet(Boolean _MustCreateWallet)
+        {
+            MustCreateWallet = _MustCreateWallet;
+
+            return MustCreateWallet;
+        }
+
+        public Boolean Login()
         { 
-            String WalletName = SettingsManager.getAppSetting("walletID");
             string StoreString = "";
-            string passString = SettingsManager.getAppSetting("pass");
-            ConsoleKeyInfo key;
-            int passRetyCount;
             Boolean passAccepted;
 
             if (WalletName == "")
             {
-                Console.WriteLine("*****Please provide login credentials****");
-                Console.WriteLine("Enter your wallet name:");
-                WalletName = Console.ReadLine();
+                return false;
             }
             string WalletFilePath = AppDomain.CurrentDomain.BaseDirectory + @"bin\\" + WalletName + ".dat";
 
-            if (!WalletFileManager.DoesWalletExist(WalletFilePath))
+            if (!WalletFileManager.DoesWalletExist(WalletFilePath) && MustCreateWallet)
             {
-                GenerateWallet.NewWallet(WalletName, WalletFilePath);
+                return GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
             }
-
-            //Start the password loop
-            passRetyCount = 0;
-
-            do
+            else if (WalletFileManager.DoesWalletExist(WalletFilePath) && MustCreateWallet)
             {
-                if (passString == "")   //Bypass if we have an autoLogin
-                {
-                    Console.WriteLine("Enter your passCode:");
-                    do
-                    {
-                        key = Console.ReadKey(true);
-
-                        // Ignore any key out of range.
-                        if (key.Key != ConsoleKey.Enter && key.Key != ConsoleKey.Backspace)
-                        {
-                            // Append the character to the password.
-                            passString += key.KeyChar;
-                            Console.Write("*");
-                        }
-                        // Exit if Enter key is pressed.
-                    } while (key.Key != ConsoleKey.Enter);
-                }
-
-                Console.WriteLine(); //Enter
-
-                //TODO: StoreString has to be fetched from BIN file, for now, generate one with a dummy passcode
+                return false;
+            }
+            else if (!WalletFileManager.DoesWalletExist(WalletFilePath))
+            {
+                return false;
+            }
+            else
+            { 
+                //Login
                 StoreString = WalletFileManager.ReadBin(WalletFilePath);
 
                 //Checking passWord
@@ -65,23 +61,11 @@ namespace SHCWalletC
                 passString = "";    //Dispose of the pass, we don't want any traces left
                 if (!passAccepted)
                 {
-                    Console.WriteLine("Your password is incorrect!");
-                    //Add penalty
-                    if (passRetyCount > 0)
-                    {
-                        Console.WriteLine("Time penalty awarded of {0} seconds", passRetyCount);
-                        System.Threading.Thread.Sleep(passRetyCount*1000);
-                    }
-                    passRetyCount ++;
+                    System.Threading.Thread.Sleep(1 * 1000);
                 }
-                else
-                {
-                    Console.WriteLine("Password check cleared");
-                }
-            } while (passAccepted == false);
-            //End the password loop  
 
-            return true;
+                return passAccepted;
+            }
         }
     }
 }

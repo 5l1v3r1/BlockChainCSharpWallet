@@ -78,7 +78,7 @@ namespace JsonRPC
                 {
                     resultBinary = this.webClient.UploadData(this.url, "POST", requestBinary);
                 }
-                catch (WebException ex)
+                catch
                 {
                     //Something went wrong
                     resultBinary = null;

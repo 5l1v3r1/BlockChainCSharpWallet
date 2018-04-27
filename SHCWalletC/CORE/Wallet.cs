@@ -41,7 +41,8 @@ namespace SHCWalletC
 
             if (!isLoggedIn)
             {
-                LoginManager.Login(); //Login if required
+                LoginManager manager = new LoginManager();
+                manager.Login(); //Login if required
                 isLoggedIn = true;  //If we pass this marker, we're logged in
                 IdleState();
             }  
@@ -115,7 +116,12 @@ namespace SHCWalletC
             //After foreach
             if (ShouldAttemptLogin)
             {
-                if(LoginManager.Login())
+                //TODO: Add parameters
+                LoginManager LoginManager = new LoginManager();
+
+                LoginManager.ParmWalletUserName("Demo");
+                LoginManager.ParmPassCode("Demo");
+                if (LoginManager.Login())
                 {
                     isLoggedIn = true;
                     IdleState();
