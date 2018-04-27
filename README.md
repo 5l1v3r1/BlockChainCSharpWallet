@@ -14,9 +14,9 @@ GITHUB:     https://github.com/GrumpyBum/harrier.coin<BR><BR>
 Travis link: https://travis-ci.org/JohnJohnssonnl/SHCWalletInC<BR>
 <BR>Reminder, the Travis build will become handy when we're almost ready for test building<BR>
 Travis Build status:   ![alt text](https://travis-ci.org/JohnJohnssonnl/SHCWalletInC.svg?branch=master)<BR><BR>
-Build in Windows: <BR>
+  <b>Build (Windows)</b><BR>
 - Install Visual Studio 2015/2017 Community<BR>
 - Open project .SLN<BR>
-- Build :-P<BR><BR>
-Build Mac:<BR>
-- MAC...LOL, no way, get a proper OS first
+- Build :-P<BR>
+- Wait a minute <g-emoji class="g-emoji" alias="coffee" fallback-src="https://assets-cdn.github.com/images/icons/emoji/unicode/2615.png">☕️</g-emoji><BR>
+- Enjoy
