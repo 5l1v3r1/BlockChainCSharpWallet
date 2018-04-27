@@ -1,6 +1,8 @@
 # SHC Wallet In C
 SHC Wallet in C#
 <BR><BR>
+<B>Be aware that this software is currently not ready to use (working on it :-)), please refrain from doing so, or use at your own risk for testing only</B>
+<BR><BR>
 <B>Goal</b><BR><BR>
 The goal is to create an easy maintainable C# wallet for the SHC (Harrier Coin) project.<BR><BR>
 <B>How</b><BR><BR>
