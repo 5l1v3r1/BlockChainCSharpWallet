@@ -8,25 +8,6 @@ namespace SHCWalletC
         String      passString;
         Boolean     MustCreateWallet;
 
-        public string ParmWalletUserName(string _WalletName)
-        {
-            WalletName = _WalletName;
-
-            return WalletName;
-        }
-        public string ParmPassCode(string _passCode)
-        {
-            passString = _passCode;
-
-            return passString;
-        }
-        public Boolean ParmCreateNewWallet(Boolean _MustCreateWallet)
-        {
-            MustCreateWallet = _MustCreateWallet;
-
-            return MustCreateWallet;
-        }
-
         public Boolean Login()
         { 
             string StoreString = "";
@@ -36,6 +17,7 @@ namespace SHCWalletC
             {
                 return false;
             }
+
             string WalletFilePath = AppDomain.CurrentDomain.BaseDirectory + @"bin\\" + WalletName + ".dat";
 
             if (!WalletFileManager.DoesWalletExist(WalletFilePath) && MustCreateWallet)
@@ -66,6 +48,26 @@ namespace SHCWalletC
 
                 return passAccepted;
             }
+        }
+
+        //Parameters
+        public string ParmWalletUserName(string _WalletName)
+        {
+            WalletName = _WalletName;
+
+            return WalletName;
+        }
+        public string ParmPassCode(string _passCode)
+        {
+            passString = _passCode;
+
+            return passString;
+        }
+        public Boolean ParmCreateNewWallet(Boolean _MustCreateWallet)
+        {
+            MustCreateWallet = _MustCreateWallet;
+
+            return MustCreateWallet;
         }
     }
 }

@@ -11,49 +11,34 @@ namespace SHCWalletC
         private static byte[] passHashStore;
 
         /*OK, as far as I figured out now we need to do the following:
-- Step 1: Generate private spend key
-- Step 2: Generate private view key
-- Step 3: Generate public spend key (ed25519 scalarmult)
-- Step 4: Generate public view key (ed25519 scalarmult)
-- Step 5: Add network byte to public spend and view key (For monetaverde: 0x1A2B // addresses start with "Vd")
+- Step 1: Generate private spend key (SHA 256 hash of passcode + username)
+- Step 2: Generate private view key (SHA 256 hash of passcode + hash of private spend key)
+- Step 3: Generate public spend key (ed25519 scalarmult of private spend key)
+- Step 4: Generate public view key (ed25519 scalarmult of private view key)
+- Step 5: Add network byte to public spend and view key
 - Step 6: this 65 byte needs to be hashed with keccak 256 
-- Step 7: Add first 4 bytes from hashed value to the 65 bytes (at the end) 
-- Step 8: Convert the 69 bytes to Base58
+- Step 7: Add first 4 bytes from hashed value to the 67 bytes (at the end) 
+- Step 8: Convert the 71 bytes to Base58
 - Step 9: Maybe we'd like to have one "superkey" which unlocks private spend and view key...who knows
 - Known bug: prefix
 */
         public static String GenerateKeySet(string _passCode = "12345"/*TODO: Implement*/, string _userId = "123546789"/*TODO: Implement*/)
 		{
-			byte[] privateSpendKey	= KeyManager.GeneratePrivateSpendKey(_passCode, _userId);				//Done	
+            Keys keyStorage = new Keys();
+
+            byte[] privateSpendKey	= KeyManager.GeneratePrivateSpendKey(_passCode, _userId);				//Done	
 			byte[] privateViewKey	= KeyManager.GeneratePrivateViewKey(_passCode, privateSpendKey);		//Done
 			byte[] publicSpendKey	= KeyManager.GeneratePubSpendKey(privateSpendKey);						//Done
 			byte[] publicViewKey	= KeyManager.GeneratePubViewKey(privateViewKey);                        //Done
-			byte[] networkByte      = KeyManager.StringToByteArray("0x42ca");//0x12			                //Done (Should start with Vd)
-            //networkByte[0] = 18;
+			byte[] networkByte      = KeyManager.StringToByteArray("0x42ca");//0x12			                //Done
             byte[] hashedKey		= KeyManager.HashKeccak256(publicSpendKey, publicViewKey, networkByte); //Done
 			string publicAddress    = KeyManager.ConvertToPubAddressChunked(hashedKey);                     //Done
-			
+
+            //Store the data of the wallet
+            keyStorage.StoreKeySet(privateSpendKey, privateViewKey, publicSpendKey, publicViewKey, networkByte, hashedKey, publicAddress, _passCode);
+
 			return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
 		}
-        public static String GenerateKeySetDemo(string _userId = "If you get this you understand something of IT"/*TODO: Implement*/)
-        {
-            byte[] privateSpendKey = KeyManager.GeneratePrivateSpendKey(_userId, _userId);                //Done	
-            byte[] privateViewKey = KeyManager.GeneratePrivateViewKey(_userId, privateSpendKey);      //Done
-            byte[] resultTotalKey = new byte[96];
-
-            System.Buffer.BlockCopy(privateSpendKey, 0, resultTotalKey, 0, privateSpendKey.Length);
-            System.Buffer.BlockCopy(privateViewKey, 0, resultTotalKey, privateViewKey.Length, privateViewKey.Length);
-
-            var pbkdf2 = new Rfc2898DeriveBytes(_userId, resultTotalKey, 10000);
-
-            passHashStore = pbkdf2.GetBytes(32);
-
-            System.Buffer.BlockCopy(passHashStore, 0, resultTotalKey, 64, passHashStore.Length);
-
-            string publicAddress = KeyManager.ConvertToPubAddressChunked(resultTotalKey);                     //Done
-
-            return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
-        }
 
         public static byte[] GeneratePrivateSpendKey(string _passCode, string _userId)
 		{
@@ -94,7 +79,7 @@ namespace SHCWalletC
 		public static byte[] HashKeccak256(byte[] publicSpendKey, byte[] publicViewKey, byte[] networkByte)
 		{
 			//We need 69 bytes: 65 from the public spend key, public view key and networkbyte + 4 from the hashing of keccak
-			byte[] origByteSet = new byte[67];	//Monero is 65, but we have 67 for MonetaVerde due to its hex network byte structure
+			byte[] origByteSet = new byte[67];	//Monero is 65, but we have 67 for SHC due to its hex network byte structure
 			byte[] hashFirst4 = new byte[4];
 			byte[] ret = new byte[71];
 			System.Buffer.BlockCopy(networkByte, 0, origByteSet, 0, networkByte.Length);
@@ -189,11 +174,7 @@ namespace SHCWalletC
 		public static int GetHexVal(char hex)
 		{
 			int val = (int)hex;
-			//For uppercase A-F letters:
-			//return val - (val < 58 ? 48 : 55);
-			//For lowercase a-f letters:
-			//return val - (val < 58 ? 48 : 87);
-			//Or the two combined, but a bit slower:
+
 			return val - (val < 58 ? 48 : (val < 97 ? 55 : 87));
 		}
     }
