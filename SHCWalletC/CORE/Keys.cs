@@ -34,6 +34,9 @@ namespace SHCWalletC
             hashedKey       = _hashedKey;
             publicAddress   = _publicAddress;
             passCode        = _passCode;
+
+            //Now we got the object filled, store its data
+            Keys.WriteKeySet(this, publicAddress);
         }
 
         public static void WriteKeySet(Keys _KeysToBlob, string _publicAddress)
