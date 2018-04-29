@@ -1,53 +1,58 @@
-﻿using System;
+﻿using SHCWalletC.CORE;
+using System;
 using System.IO;
 
 namespace SHCWalletC
 {
     class LoginManager
     {
-        String      WalletName;
-        String      passString;
-        Boolean     MustCreateWallet;
+        public  String      WalletName;
+        public  String      passString;
+        Boolean             MustCreateWallet;
+        Keys                KeysLocal;
+        WalletData          WalletDataLocal;
 
-        public Boolean Login()
+        public WalletData Login()
         { 
-            string StoreString = "";
             Boolean passAccepted;
 
             if (WalletName == "")
             {
-                return false;
+                return null;
             }
 
             string WalletFilePath = AppDomain.CurrentDomain.BaseDirectory + @"bin\\" + WalletName + ".dat";
 
             if (!File.Exists(WalletFilePath) && MustCreateWallet)
             {
-                return GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
+                WalletDataLocal = GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
+
+                return WalletDataLocal;
             }
             else if (File.Exists(WalletFilePath) && MustCreateWallet)
             {
-                return false;
+                return null;
             }
             else if (!File.Exists(WalletFilePath))
             {
-                return false;
+                return null;
             }
             else
-            { 
-                //Login
-                //StoreString = WalletFileManager.ReadBin(WalletFilePath);
+            {
+                WalletDataLocal = WalletData.ReadBlobToWalletData(WalletName);
 
                 //Checking passWord
-                passAccepted = PasswordManager.CheckPass(passString, StoreString);
+                passAccepted = PasswordManager.CheckPass(passString, Convert.ToBase64String(WalletDataLocal.passCode));
 
                 passString = "";    //Dispose of the pass, we don't want any traces left
+
                 if (!passAccepted)
                 {
                     System.Threading.Thread.Sleep(1 * 1000);
+                    return null;
                 }
 
-                return passAccepted;
+                return WalletDataLocal;
             }
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using SHCWalletC.CORE;
 
 namespace SHCWalletC
 {
@@ -6,20 +7,27 @@ namespace SHCWalletC
     {
         //this class will hold all required code for creating a new wallet from scratch
 
-        public static Boolean NewWallet(String _walletName, String _walletfilePath, string _passCode)
+        public static WalletData NewWallet(String _walletName, String _walletfilePath, string _passCode)
         {
-            String passString = _passCode;
-			String PublicAddress;
-            Boolean passAcceptable = false;
+            String      passString = _passCode;
+            Keys        KeysClass;
+            Boolean     passAcceptable;
+            WalletData  WalletDataCreate;
 
             passAcceptable = PasswordManager.CheckPassRequirements(passString);
 
             if (passAcceptable)
             {
-                PublicAddress = KeyManager.GenerateKeySet(_passCode, _walletName);
-            }
+                KeysClass = KeyManager.GenerateKeySet(_passCode, _walletName);
+                WalletDataCreate = new WalletData();
+                WalletDataCreate.CreateNewWalletData(KeysClass, _passCode, _walletName);
 
-            return passAcceptable;
+                return WalletDataCreate;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

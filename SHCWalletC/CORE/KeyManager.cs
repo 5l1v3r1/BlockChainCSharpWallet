@@ -21,7 +21,7 @@ namespace SHCWalletC
 - Step 9: Maybe we'd like to have one "superkey" which unlocks private spend and view key...who knows
 - Known bug: prefix
 */
-        public static String GenerateKeySet(string _passCode, string _walletName)
+        public static Keys GenerateKeySet(string _passCode, string _walletName)
 		{
             Keys keyStorage = new Keys();
 
@@ -37,7 +37,7 @@ namespace SHCWalletC
             
             keyStorage.StoreKeySet(privateSpendKey, privateViewKey, publicSpendKey, publicViewKey, networkByte, hashedKey, publicAddress, PasswordManager.GenerateSaltedOutputBytes(_passCode), _walletName);
 
-			return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
+			return keyStorage;   //Return the public address, the rest we have to store somewhere safe...
 		}
 
         public static byte[] GeneratePrivateSpendKey(string _passCode, string _userId)

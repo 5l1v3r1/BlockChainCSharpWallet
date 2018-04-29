@@ -42,7 +42,7 @@ namespace SHCWalletC.GUI.WindowsForms
             LoginMan.ParmPassCode(PassCodeTextbox.Text);
             LoginMan.ParmCreateNewWallet(CreateNewWalletCheckbox.Checked);
 
-            if (LoginMan.Login())
+            if (LoginMan.Login() != null)
             {
                 this.Close();
             }

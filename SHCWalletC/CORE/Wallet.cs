@@ -121,7 +121,7 @@ namespace SHCWalletC
 
                 LoginManager.ParmWalletUserName("Demo");
                 LoginManager.ParmPassCode("Demo");
-                if (LoginManager.Login())
+                if (LoginManager.Login() != null)
                 {
                     isLoggedIn = true;
                     IdleState();
