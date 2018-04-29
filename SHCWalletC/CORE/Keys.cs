@@ -41,6 +41,7 @@ namespace SHCWalletC
 
         public static void WriteKeySet(Keys _KeysToBlob, string _publicAddress)
         {
+            //TODO: Move serialization to FileBinIO to avoid duplicating code on multiple objects
             MemoryStream memorystream = new MemoryStream();
             BinaryFormatter bf = new BinaryFormatter();
             bf.Serialize(memorystream, _KeysToBlob);
@@ -51,7 +52,7 @@ namespace SHCWalletC
         public static Keys ReadBlobToKeySet(string _publicAddress)
         {
             //Read from bin
-
+            //TODO: Move deserialization to FileBinIO to avoid duplicating code on multiple objects
             byte[] BlobData = FileBinIO.ReadBin(AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\" + _publicAddress + ".bin");
 
             MemoryStream memorystreamd = new MemoryStream(BlobData);

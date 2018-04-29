@@ -23,6 +23,7 @@ namespace SHCWalletC.CORE
 
         public static void WritePreferences(Preference _PrefToBlob)
         {
+            //TODO: Move serialization to FileBinIO to avoid duplicating code on multiple objects
             MemoryStream memorystream = new MemoryStream();
             BinaryFormatter bf = new BinaryFormatter();
             bf.Serialize(memorystream, _PrefToBlob);
@@ -32,6 +33,7 @@ namespace SHCWalletC.CORE
         }
         public static Preference ReadBlobToPreferences()
         {
+            //TODO: Move deserialization to FileBinIO to avoid duplicating code on multiple objects
             if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\Pref.bin"))
             {
                 //Return empty object
