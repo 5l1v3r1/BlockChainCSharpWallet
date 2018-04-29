@@ -233,6 +233,7 @@
             this.PreferencesButton.TabIndex = 18;
             this.PreferencesButton.Text = "Preferences";
             this.PreferencesButton.UseVisualStyleBackColor = false;
+            this.PreferencesButton.Click += new System.EventHandler(this.PreferencesButton_Click);
             // 
             // AboutButton
             // 

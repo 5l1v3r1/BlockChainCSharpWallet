@@ -61,5 +61,14 @@ namespace SHCWalletC.GUI
             // Show the settings form
             loginForm.Show();
         }
+
+        private void PreferencesButton_Click(object sender, EventArgs e)
+        {
+            // Create a new instance of the Form2 class
+            Pref PrefForm = new Pref();
+
+            // Show the settings form
+            PrefForm.Show();
+        }
     }
 }

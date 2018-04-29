@@ -32,7 +32,11 @@ namespace SHCWalletC.CORE
         }
         public static Preference ReadBlobToPreferences()
         {
-            //Read from bin
+            if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\Pref.bin"))
+            {
+                //Return empty object
+                return new Preference();
+            }
 
             byte[] BlobData = FileBinIO.ReadBin(AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\Pref.bin");
 

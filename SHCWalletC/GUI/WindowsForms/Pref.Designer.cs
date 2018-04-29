@@ -63,7 +63,6 @@
             this.RemoteDaemonAddress.ForeColor = System.Drawing.Color.Gray;
             this.RemoteDaemonAddress.Location = new System.Drawing.Point(202, 135);
             this.RemoteDaemonAddress.Name = "RemoteDaemonAddress";
-            this.RemoteDaemonAddress.PasswordChar = '*';
             this.RemoteDaemonAddress.Size = new System.Drawing.Size(384, 33);
             this.RemoteDaemonAddress.TabIndex = 7;
             // 
@@ -79,6 +78,7 @@
             this.ButtonSave.TabIndex = 6;
             this.ButtonSave.Text = "Save and close";
             this.ButtonSave.UseVisualStyleBackColor = false;
+            this.ButtonSave.Click += new System.EventHandler(this.ButtonSave_Click);
             // 
             // Pref
             // 
@@ -92,6 +92,7 @@
             this.Controls.Add(this.ButtonSave);
             this.Name = "Pref";
             this.Text = "Pref";
+            this.Load += new System.EventHandler(this.Pref_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
