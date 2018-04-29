@@ -8,7 +8,6 @@ namespace SHCWalletC
 {
     class KeyManager
     {
-        private static byte[] passHashStore;
 
         /*OK, as far as I figured out now we need to do the following:
 - Step 1: Generate private spend key (SHA 256 hash of passcode + username)
@@ -22,20 +21,21 @@ namespace SHCWalletC
 - Step 9: Maybe we'd like to have one "superkey" which unlocks private spend and view key...who knows
 - Known bug: prefix
 */
-        public static String GenerateKeySet(string _passCode = "12345"/*TODO: Implement*/, string _userId = "123546789"/*TODO: Implement*/)
+        public static String GenerateKeySet(string _passCode, string _walletName)
 		{
             Keys keyStorage = new Keys();
 
-            byte[] privateSpendKey	= KeyManager.GeneratePrivateSpendKey(_passCode, _userId);				//Done	
-			byte[] privateViewKey	= KeyManager.GeneratePrivateViewKey(_passCode, privateSpendKey);		//Done
-			byte[] publicSpendKey	= KeyManager.GeneratePubSpendKey(privateSpendKey);						//Done
-			byte[] publicViewKey	= KeyManager.GeneratePubViewKey(privateViewKey);                        //Done
-			byte[] networkByte      = KeyManager.StringToByteArray("0x42ca");//0x12			                //Done
-            byte[] hashedKey		= KeyManager.HashKeccak256(publicSpendKey, publicViewKey, networkByte); //Done
-			string publicAddress    = KeyManager.ConvertToPubAddressChunked(hashedKey);                     //Done
+            byte[] privateSpendKey	= KeyManager.GeneratePrivateSpendKey(_passCode, _walletName);				//Done	
+			byte[] privateViewKey	= KeyManager.GeneratePrivateViewKey(_passCode, privateSpendKey);		    //Done
+			byte[] publicSpendKey	= KeyManager.GeneratePubSpendKey(privateSpendKey);						    //Done
+			byte[] publicViewKey	= KeyManager.GeneratePubViewKey(privateViewKey);                            //Done
+			byte[] networkByte      = KeyManager.StringToByteArray("0x42ca");//0x12			                    //Done
+            byte[] hashedKey		= KeyManager.HashKeccak256(publicSpendKey, publicViewKey, networkByte);     //Done
+			string publicAddress    = KeyManager.ConvertToPubAddressChunked(hashedKey);                         //Done
 
             //Store the data of the wallet
-            keyStorage.StoreKeySet(privateSpendKey, privateViewKey, publicSpendKey, publicViewKey, networkByte, hashedKey, publicAddress, _passCode);
+            
+            keyStorage.StoreKeySet(privateSpendKey, privateViewKey, publicSpendKey, publicViewKey, networkByte, hashedKey, publicAddress, PasswordManager.GenerateSaltedOutputBytes(_passCode), _walletName);
 
 			return publicAddress;   //Return the public address, the rest we have to store somewhere safe...
 		}

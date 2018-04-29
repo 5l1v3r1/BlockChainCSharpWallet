@@ -16,8 +16,7 @@ namespace SHCWalletC
 
             if (passAcceptable)
             {
-                PublicAddress = KeyManager.GenerateKeySet();
-                WalletFileManager.WriteBin(PublicAddress, _walletfilePath);         // Write public address to Bin
+                PublicAddress = KeyManager.GenerateKeySet(_passCode, _walletName);
             }
 
             return passAcceptable;

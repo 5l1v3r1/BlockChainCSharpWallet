@@ -15,7 +15,8 @@ namespace SHCWalletC
         byte[] networkByte;
         byte[] hashedKey;
         string publicAddress;
-        string passCode;
+        byte[] passCode;
+        string walletName;
 
         public void StoreKeySet(    byte[]  _privateSpendKey, 
                                     byte[]  _privateViewKey, 
@@ -24,7 +25,8 @@ namespace SHCWalletC
                                     byte[]  _networkByte,
                                     byte[]  _hashedKey, 
                                     string  _publicAddress,
-                                    string  _passCode)
+                                    byte[]  _passCode,
+                                    string  _walletName)
         {
             privateSpendKey = _privateSpendKey;
             privateViewKey  = _privateViewKey;
@@ -34,12 +36,13 @@ namespace SHCWalletC
             hashedKey       = _hashedKey;
             publicAddress   = _publicAddress;
             passCode        = _passCode;
+            walletName      = _walletName;
 
             //Now we got the object filled, store its data
-            Keys.WriteKeySet(this, publicAddress);
+            Keys.WriteKeySet(this, walletName);
         }
 
-        public static void WriteKeySet(Keys _KeysToBlob, string _publicAddress)
+        public static void WriteKeySet(Keys _KeysToBlob, string _walletName)
         {
             //TODO: Move serialization to FileBinIO to avoid duplicating code on multiple objects
             MemoryStream memorystream = new MemoryStream();
@@ -47,13 +50,13 @@ namespace SHCWalletC
             bf.Serialize(memorystream, _KeysToBlob);
             byte[] BlobData = memorystream.ToArray();
 
-            FileBinIO.WriteBin(BlobData, _publicAddress);
+            FileBinIO.WriteBin(BlobData, _walletName);
         }
-        public static Keys ReadBlobToKeySet(string _publicAddress)
+        public static Keys ReadBlobToKeySet(string _walletName)
         {
             //Read from bin
             //TODO: Move deserialization to FileBinIO to avoid duplicating code on multiple objects
-            byte[] BlobData = FileBinIO.ReadBin(AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\" + _publicAddress + ".bin");
+            byte[] BlobData = FileBinIO.ReadBin(AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\" + _walletName + ".bin");
 
             MemoryStream memorystreamd = new MemoryStream(BlobData);
             BinaryFormatter bfd = new BinaryFormatter();

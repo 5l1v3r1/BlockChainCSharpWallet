@@ -29,7 +29,7 @@ namespace SHCWalletC
 
             //TESTING
             setDaemonIpPort();
-			Console.WriteLine(KeyManager.GenerateKeySet());              //Test generating a key 
+			Console.WriteLine(KeyManager.GenerateKeySet("12345","Johnny"));              //Test generating a key 
 
 			connectionStable = RPCConnectionManager.SendRPCJson("getblockcount", "") == null?false:true;  //Params have to be filled. Todo later on
 

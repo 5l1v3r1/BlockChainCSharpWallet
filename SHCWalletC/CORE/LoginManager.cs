@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace SHCWalletC
 {
@@ -20,22 +21,22 @@ namespace SHCWalletC
 
             string WalletFilePath = AppDomain.CurrentDomain.BaseDirectory + @"bin\\" + WalletName + ".dat";
 
-            if (!WalletFileManager.DoesWalletExist(WalletFilePath) && MustCreateWallet)
+            if (!File.Exists(WalletFilePath) && MustCreateWallet)
             {
                 return GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
             }
-            else if (WalletFileManager.DoesWalletExist(WalletFilePath) && MustCreateWallet)
+            else if (File.Exists(WalletFilePath) && MustCreateWallet)
             {
                 return false;
             }
-            else if (!WalletFileManager.DoesWalletExist(WalletFilePath))
+            else if (!File.Exists(WalletFilePath))
             {
                 return false;
             }
             else
             { 
                 //Login
-                StoreString = WalletFileManager.ReadBin(WalletFilePath);
+                //StoreString = WalletFileManager.ReadBin(WalletFilePath);
 
                 //Checking passWord
                 passAccepted = PasswordManager.CheckPass(passString, StoreString);
