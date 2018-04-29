@@ -7,11 +7,11 @@ namespace SHCWalletC
 {
     class FileBinIO
     {
-        public static void WriteBin(byte[] _storage, string _BlockHeight)
+        public static void WriteBin(byte[] _storage, string _fileName)
         {
             //Write to wallet file
             String FileFolder = AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\";
-            String FilePath = FileFolder + _BlockHeight + ".bin";
+            String FilePath = FileFolder + _fileName + ".bin";
 
             if (!Directory.Exists(FileFolder))
             {
