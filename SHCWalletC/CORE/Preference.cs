@@ -9,13 +9,16 @@ namespace SHCWalletC.CORE
     {
         public Boolean      useRemoteDaemon;
         public string       remoteDaemonAddress;
+        public string       daemonIPPort = "127.0.0.1:51485";   //Expect localhost
 
         public void StorePreferences    (Boolean    _useRemoteDaemon,
-                                         string     _remoteDaemonAddress)
+                                         string     _remoteDaemonAddress,
+                                         string     _daemonIPPort)
                                     
         {
             useRemoteDaemon     = _useRemoteDaemon;
             remoteDaemonAddress = _remoteDaemonAddress;
+            daemonIPPort        = _daemonIPPort;
 
             //Now we got the object filled, store its data
             Preference.WritePreferences(this);

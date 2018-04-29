@@ -9,9 +9,10 @@ namespace SHCWalletC.CORE
     public class WalletData
     {
         //This walletData class will hold all data needed for interacting with the BlockChain, including Keys Object, blockchain data etc. etc.
-        Keys    Keydata;
-        public byte[]  passCode;
-        string walletName;
+        Keys                        Keydata;
+        public  byte[]              passCode;
+        public  string              walletName;
+        public BlockChain           StoredBlockChain;
 
         public WalletData CreateNewWalletData(Keys   _Keys, string _pass, string _walletName)
         {
@@ -21,7 +22,7 @@ namespace SHCWalletC.CORE
             WalletDataLocal.walletName  = _walletName;
             //Now we got the object filled, store its data
 
-            WalletData.WriteWalletData(this, walletName);
+            WalletData.WriteWalletData(WalletDataLocal, _walletName);
 
             return WalletDataLocal;
         }

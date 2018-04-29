@@ -33,6 +33,7 @@ namespace SHCWalletC
                 sr.BaseStream.CopyTo(memstream);
                 bytes = memstream.ToArray();
             }
+            sr.Close(); //Close connection to avoid fileOpening errors
 
             return bytes;
         }

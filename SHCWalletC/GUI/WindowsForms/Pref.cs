@@ -21,12 +21,13 @@ namespace SHCWalletC.GUI.WindowsForms
             //Load data to form
             RemoteDaemonAddress.Text    = PreferenceObject.remoteDaemonAddress;
             UseRemoteDaemonCB.Checked   = PreferenceObject.useRemoteDaemon;
+            LocalDaemonAddress.Text     = PreferenceObject.daemonIPPort;
         }
 
         private void ButtonSave_Click(object sender, EventArgs e)
         {
             //Store data
-            PreferenceObject.StorePreferences(UseRemoteDaemonCB.Checked, RemoteDaemonAddress.Text);
+            PreferenceObject.StorePreferences(UseRemoteDaemonCB.Checked, RemoteDaemonAddress.Text, LocalDaemonAddress.Text);
             this.Close();
         }
     }

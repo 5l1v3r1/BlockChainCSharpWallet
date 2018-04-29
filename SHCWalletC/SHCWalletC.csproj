@@ -65,7 +65,8 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CORE\BlockChainManager.cs" />
+    <Compile Include="CORE\Block.cs" />
+    <Compile Include="CORE\BlockChain.cs" />
     <Compile Include="CORE\FileBinIO.cs" />
     <Compile Include="CORE\Keys.cs" />
     <Compile Include="CORE\Preference.cs" />

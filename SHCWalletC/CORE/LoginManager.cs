@@ -21,7 +21,7 @@ namespace SHCWalletC
                 return null;
             }
 
-            string WalletFilePath = AppDomain.CurrentDomain.BaseDirectory + @"bin\\" + WalletName + ".dat";
+            string WalletFilePath = AppDomain.CurrentDomain.BaseDirectory + @"bin\\WalletData\\" + WalletName + ".bin";
 
             if (!File.Exists(WalletFilePath) && MustCreateWallet)
             {

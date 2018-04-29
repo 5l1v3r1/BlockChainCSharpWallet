@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using SHCWalletC.CORE;
 
 namespace SHCWalletC
 {
-    class BlockChainManager
+    [Serializable]
+    public class BlockChain
     {
-        public static void Sync()
+        Block Block;
+
+        public void Sync()
         {
-            int blockHeightDaemon = BlockChainManager.GetDaemonBlockHeight();   //Gets current daemonHeight
+            int blockHeightDaemon = BlockChain.GetDaemonBlockHeight();   //Gets current daemonHeight
             int blockHeightWallet = Convert.ToInt32(SettingsManager.getAppSetting("blockHeightWallet"));
 
             //The sole purpose of this method is to check the current maxBlockHeight on the daemon and keep building the blocks for the wallet untill this level
             do
             {
                 blockHeightWallet++;
-                BlockChainManager.GetBlock(blockHeightWallet);  //Update block
+                this.GetBlock(blockHeightWallet);  //Update block
                 SettingsManager.setAppSetting("blockHeightWallet", Convert.ToString(blockHeightWallet));
 
             } while (blockHeightDaemon > blockHeightWallet);
@@ -30,9 +30,12 @@ namespace SHCWalletC
 
             return Convert.ToInt32(BlockCountStr);  //We expect a 32 bit int to be sufficient, could be altered to INT64 here
         }
-        public static void GetBlock(int _blockHeightToFetch)
+        public Block GetBlock(int _blockHeightToFetch)
         {
             //Fetch block from Daemon and add it to file
+            Block = new Block();
+
+            return Block;
         } 
     }
 }
