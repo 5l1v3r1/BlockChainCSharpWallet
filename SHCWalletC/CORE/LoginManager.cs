@@ -28,7 +28,15 @@ namespace SHCWalletC
 
             if (!File.Exists(WalletFilePath) && MustCreateWallet)
             {
-                WalletDataLocal = GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
+                if (PasswordManager.CheckPassRequirements(passString))
+                {
+                    WalletDataLocal = GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
+                }
+                else
+                {
+                    Caller.SemaphoricExceptionCallLogin("Passcode does not comply with requirements !");
+                    return null;
+                }
 
                 return WalletDataLocal;
             }

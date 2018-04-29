@@ -9,7 +9,7 @@ namespace SHCWalletC.CORE
     public class WalletData
     {
         //This walletData class will hold all data needed for interacting with the BlockChain, including Keys Object, blockchain data etc. etc.
-        Keys                        Keydata;
+        public Keys                 Keydata;
         public  byte[]              passCode;
         public  string              walletName;
         public BlockChain           StoredBlockChain;
