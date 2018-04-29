@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CreateNewWalletCheckbox = new System.Windows.Forms.CheckBox();
+            this.SystemOutput = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // ButtonLogin
@@ -106,12 +107,25 @@
             this.CreateNewWalletCheckbox.UseVisualStyleBackColor = true;
             this.CreateNewWalletCheckbox.CheckedChanged += new System.EventHandler(this.CreateNewWalletCheckbox_CheckedChanged);
             // 
+            // SystemOutput
+            // 
+            this.SystemOutput.AutoSize = true;
+            this.SystemOutput.Cursor = System.Windows.Forms.Cursors.Default;
+            this.SystemOutput.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SystemOutput.ForeColor = System.Drawing.Color.Red;
+            this.SystemOutput.Location = new System.Drawing.Point(116, 371);
+            this.SystemOutput.Name = "SystemOutput";
+            this.SystemOutput.Size = new System.Drawing.Size(0, 26);
+            this.SystemOutput.TabIndex = 6;
+            this.SystemOutput.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(614, 378);
+            this.ClientSize = new System.Drawing.Size(611, 429);
+            this.Controls.Add(this.SystemOutput);
             this.Controls.Add(this.CreateNewWalletCheckbox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -133,5 +147,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox CreateNewWalletCheckbox;
+        private System.Windows.Forms.Label SystemOutput;
     }
 }

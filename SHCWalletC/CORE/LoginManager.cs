@@ -1,4 +1,5 @@
 ﻿using SHCWalletC.CORE;
+using SHCWalletC.GUI;
 using System;
 using System.IO;
 
@@ -6,11 +7,12 @@ namespace SHCWalletC
 {
     class LoginManager
     {
-        public  String      WalletName;
-        public  String      passString;
-        Boolean             MustCreateWallet;
-        Keys                KeysLocal;
-        WalletData          WalletDataLocal;
+        public  String          WalletName;
+        public  String          passString;
+        Boolean                 MustCreateWallet;
+        Keys                    KeysLocal;
+        WalletData              WalletDataLocal;
+        GUI.WindowsForms.Login  Caller;
 
         public WalletData Login()
         { 
@@ -18,6 +20,7 @@ namespace SHCWalletC
 
             if (WalletName == "")
             {
+                Caller.SemaphoricExceptionCallLogin("No wallet name specified");
                 return null;
             }
 
@@ -31,10 +34,12 @@ namespace SHCWalletC
             }
             else if (File.Exists(WalletFilePath) && MustCreateWallet)
             {
+                Caller.SemaphoricExceptionCallLogin("Wallet already exists!");
                 return null;
             }
             else if (!File.Exists(WalletFilePath))
             {
+                Caller.SemaphoricExceptionCallLogin("Wallet does not exist");
                 return null;
             }
             else
@@ -49,6 +54,7 @@ namespace SHCWalletC
                 if (!passAccepted)
                 {
                     System.Threading.Thread.Sleep(1 * 1000);
+                    Caller.SemaphoricExceptionCallLogin("Wrong passcode entered!");
                     return null;
                 }
 
@@ -74,6 +80,13 @@ namespace SHCWalletC
             MustCreateWallet = _MustCreateWallet;
 
             return MustCreateWallet;
+        }
+
+        public object ParmCaller(GUI.WindowsForms.Login _Caller)
+        {
+            Caller = _Caller;
+
+            return Caller;
         }
     }
 }
