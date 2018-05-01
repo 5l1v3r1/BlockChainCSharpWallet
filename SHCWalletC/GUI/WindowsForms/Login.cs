@@ -69,5 +69,10 @@ namespace SHCWalletC.GUI.WindowsForms
                 SystemOutput.Text = messageException.Message;
             }
         }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

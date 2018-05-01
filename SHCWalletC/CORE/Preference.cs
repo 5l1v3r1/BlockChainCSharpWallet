@@ -7,9 +7,9 @@ namespace SHCWalletC.CORE
     [Serializable]
     class Preference
     {
-        public Boolean      useRemoteDaemon;
-        public string       remoteDaemonAddress;
-        public string       daemonIPPort = "127.0.0.1:51485";   //Expect localhost
+        public Boolean                          useRemoteDaemon;
+        public string remoteDaemonAddress   =   Config.GetConfiguration().RemoteHost;
+        public string daemonIPPort          =   Config.GetConfiguration().LocalHost;
 
         public void StorePreferences    (Boolean    _useRemoteDaemon,
                                          string     _remoteDaemonAddress,

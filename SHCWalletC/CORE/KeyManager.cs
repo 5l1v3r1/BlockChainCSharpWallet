@@ -29,7 +29,7 @@ namespace SHCWalletC
 			byte[] privateViewKey	= KeyManager.GeneratePrivateViewKey(_passCode, privateSpendKey);		    //Done
 			byte[] publicSpendKey	= KeyManager.GeneratePubSpendKey(privateSpendKey);						    //Done
 			byte[] publicViewKey	= KeyManager.GeneratePubViewKey(privateViewKey);                            //Done
-			byte[] networkByte      = KeyManager.StringToByteArray("0x42ca");//0x12			                    //Done
+			byte[] networkByte      = KeyManager.StringToByteArray(Config.GetConfiguration().NetworkPreFix);    //Done
             byte[] hashedKey		= KeyManager.HashKeccak256(publicSpendKey, publicViewKey, networkByte);     //Done
 			string publicAddress    = KeyManager.ConvertToPubAddressChunked(hashedKey);                         //Done
 

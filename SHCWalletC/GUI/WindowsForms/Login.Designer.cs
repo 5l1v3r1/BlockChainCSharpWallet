@@ -137,11 +137,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("French Script MT", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.LightGray;
             this.label3.Location = new System.Drawing.Point(210, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(507, 40);
+            this.label3.Size = new System.Drawing.Size(728, 39);
             this.label3.TabIndex = 8;
             this.label3.Text = "Welcome to the Harrier C# wallet, please login";
             // 
@@ -163,6 +163,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.Login_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

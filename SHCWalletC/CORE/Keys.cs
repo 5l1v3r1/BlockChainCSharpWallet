@@ -8,15 +8,15 @@ namespace SHCWalletC
     [Serializable]   //These are storable, so we need this serializable
     public class Keys
     {
-        byte[] privateSpendKey;
-        byte[] privateViewKey;
-        byte[] publicSpendKey;
-        byte[] publicViewKey;
-        byte[] networkByte;
-        byte[] hashedKey;
-        string publicAddress;
-        byte[] passCode;
-        string walletName;
+        public byte[] privateSpendKey;
+        public byte[] privateViewKey;
+        public byte[] publicSpendKey;
+        public byte[] publicViewKey;
+        public byte[] networkByte;
+        public byte[] hashedKey;
+        public string publicAddress;
+        public byte[] passCode;
+        public string walletName;
 
         public void StoreKeySet(    byte[] _privateSpendKey,
                                     byte[] _privateViewKey,

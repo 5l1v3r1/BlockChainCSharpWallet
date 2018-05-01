@@ -68,12 +68,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Config.cs" />
     <Compile Include="CORE\Block.cs" />
     <Compile Include="CORE\BlockChain.cs" />
     <Compile Include="CORE\FileBinIO.cs" />
     <Compile Include="CORE\Keys.cs" />
     <Compile Include="CORE\Preference.cs" />
     <Compile Include="CORE\QRCodeManager.cs" />
+    <Compile Include="CORE\SendTransaction.cs" />
     <Compile Include="CORE\WalletData.cs" />
     <Compile Include="CRYPTOGRAPHIC\Ed25519.cs" />
     <Compile Include="GUI\WindowsForms\Login.cs">
