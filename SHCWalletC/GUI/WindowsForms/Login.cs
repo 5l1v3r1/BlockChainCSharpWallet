@@ -53,19 +53,20 @@ namespace SHCWalletC.GUI.WindowsForms
             try
             {
                 WalletData = LoginMan.Login();
+
+                if (WalletData != null)
+                {
+                    MainForm mainForm = new MainForm();
+
+                    mainForm.ParmWalletData(WalletData);    //Transfer wallet data
+                    mainForm.Show();
+
+                    this.Hide();
+                }
             }
             catch (Exception messageException)
             {
                 SystemOutput.Text = messageException.Message;
-            }
-  
-            if (LoginMan.Login() != null)
-            {
-                MainForm mainForm = new MainForm();
-
-                mainForm.Show();
-
-                this.Close();
             }
         }
     }

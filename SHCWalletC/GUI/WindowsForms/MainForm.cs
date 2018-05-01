@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Windows.Forms;
 using SHCWalletC.CORE;
@@ -11,6 +8,8 @@ namespace SHCWalletC.GUI
 {
     public partial class MainForm : Form
     {
+        public WalletData WalletData;
+
         public MainForm()
         {
             String daemonIPPort = "127.0.0.1:51485";   //Expect localhost
@@ -21,6 +20,13 @@ namespace SHCWalletC.GUI
             SettingsManager.setAppSetting("daemonIPPort", daemonIPPort);    //Basic set IPPort
 
             QRReceive.Image = QRCodeManager.CreateQR(LabelAddress.Text, 3);    //Create QR based on wallet, later to be handled in the core classes
+        }
+
+        public WalletData   ParmWalletData(WalletData _data)
+        {
+            WalletData = _data;
+
+            return WalletData;
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
