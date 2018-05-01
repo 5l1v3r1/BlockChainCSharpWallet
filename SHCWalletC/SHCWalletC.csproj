@@ -112,10 +112,6 @@
     <Compile Include="CORE\SessionWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CORE\SettingsManager.cs" />
-    <Compile Include="CORE\TransactionManager.cs" />
-    <Compile Include="CORE\UserInteractionManager.cs" />
-    <Compile Include="CORE\Wallet.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

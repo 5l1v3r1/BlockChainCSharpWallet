@@ -7,6 +7,7 @@ using JsonRPC;
 using Newtonsoft.Json.Linq;
 using System.Net;
 using System.IO;
+using SHCWalletC.CORE;
 
 namespace SHCWalletC
 {
@@ -15,8 +16,7 @@ namespace SHCWalletC
         //This class contains all code to interact with RPC
         public static GenericResponse SendRPCJson(string _method, string _params)
         {
-            string daemonIp = SettingsManager.getAppSetting("daemonIPPort");
-            string URL      = "http://" + daemonIp + "/json_rpc";    //Get parameter for IP+Port
+            string URL      = "http://" + Preference.ReadBlobToPreferences().daemonIPPort + "/json_rpc";    //Get parameter for IP+Port
             GenericResponse response;
 
             using (Client rpcClient = new Client(URL))

@@ -6,19 +6,20 @@ namespace SHCWalletC
     [Serializable]
     public class BlockChain
     {
-        Block Block;
+        Block   Block;
+        public int blockHeightWallet;
+        public int blockHeightDaemon;
 
         public void Sync()
         {
             int blockHeightDaemon = BlockChain.GetDaemonBlockHeight();   //Gets current daemonHeight
-            int blockHeightWallet = Convert.ToInt32(SettingsManager.getAppSetting("blockHeightWallet"));
+            //int blockHeightWallet = Convert.ToInt32(SettingsManager.getAppSetting("blockHeightWallet"));
 
             //The sole purpose of this method is to check the current maxBlockHeight on the daemon and keep building the blocks for the wallet untill this level
             do
             {
                 blockHeightWallet++;
                 this.GetBlock(blockHeightWallet);  //Update block
-                SettingsManager.setAppSetting("blockHeightWallet", Convert.ToString(blockHeightWallet));
 
             } while (blockHeightDaemon > blockHeightWallet);
             //Here we need to program a refresh polling mechanism which will poll for example every minute if the blockheight of the daemon updated and if we need to sync again
