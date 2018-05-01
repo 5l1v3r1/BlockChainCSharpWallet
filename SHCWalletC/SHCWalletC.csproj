@@ -75,6 +75,7 @@
     <Compile Include="CORE\Keys.cs" />
     <Compile Include="CORE\Preference.cs" />
     <Compile Include="CORE\QRCodeManager.cs" />
+    <Compile Include="CORE\RPCResultHelper.cs" />
     <Compile Include="CORE\SendTransaction.cs" />
     <Compile Include="CORE\WalletData.cs" />
     <Compile Include="CRYPTOGRAPHIC\Ed25519.cs" />

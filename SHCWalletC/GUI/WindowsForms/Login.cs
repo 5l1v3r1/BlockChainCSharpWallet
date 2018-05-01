@@ -72,7 +72,7 @@ namespace SHCWalletC.GUI.WindowsForms
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            RPCResultHelper.jsonResult(RPCConnectionManager.SendRPCJson("getblockcount"));
         }
     }
 }
