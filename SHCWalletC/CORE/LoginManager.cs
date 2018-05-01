@@ -31,14 +31,14 @@ namespace SHCWalletC
                 if (PasswordManager.CheckPassRequirements(passString))
                 {
                     WalletDataLocal = GenerateWallet.NewWallet(WalletName, WalletFilePath, passString);
+                    Caller.SemaphoricExceptionCallLogin("Wallet created!");
+                    return WalletDataLocal;
                 }
                 else
                 {
                     Caller.SemaphoricExceptionCallLogin("Passcode does not comply with requirements !");
                     return null;
                 }
-
-                return WalletDataLocal;
             }
             else if (File.Exists(WalletFilePath) && MustCreateWallet)
             {
