@@ -57,6 +57,8 @@ namespace SHCWalletC.GUI
 
             // Show the settings form
             loginForm.Show();
+
+            this.Close();
         }
 
         private void PreferencesButton_Click(object sender, EventArgs e)

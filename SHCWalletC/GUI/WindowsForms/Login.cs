@@ -61,6 +61,10 @@ namespace SHCWalletC.GUI.WindowsForms
   
             if (LoginMan.Login() != null)
             {
+                MainForm mainForm = new MainForm();
+
+                mainForm.Show();
+
                 this.Close();
             }
         }

@@ -42,7 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.LoginButton = new System.Windows.Forms.Button();
+            this.LogoutButton = new System.Windows.Forms.Button();
             this.PreferencesButton = new System.Windows.Forms.Button();
             this.AboutButton = new System.Windows.Forms.Button();
             this.PaymentDescriptionTextBox = new System.Windows.Forms.TextBox();
@@ -208,19 +208,19 @@
             this.label3.Text = "BlockHeight: 0";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // LoginButton
+            // LogoutButton
             // 
-            this.LoginButton.BackColor = System.Drawing.Color.Gray;
-            this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoginButton.ForeColor = System.Drawing.Color.White;
-            this.LoginButton.Location = new System.Drawing.Point(0, 0);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(280, 46);
-            this.LoginButton.TabIndex = 17;
-            this.LoginButton.Text = "Login";
-            this.LoginButton.UseVisualStyleBackColor = false;
-            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            this.LogoutButton.BackColor = System.Drawing.Color.Gray;
+            this.LogoutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.LogoutButton.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LogoutButton.ForeColor = System.Drawing.Color.White;
+            this.LogoutButton.Location = new System.Drawing.Point(0, 0);
+            this.LogoutButton.Name = "LogoutButton";
+            this.LogoutButton.Size = new System.Drawing.Size(280, 46);
+            this.LogoutButton.TabIndex = 17;
+            this.LogoutButton.Text = "Logout";
+            this.LogoutButton.UseVisualStyleBackColor = false;
+            this.LogoutButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
             // PreferencesButton
             // 
@@ -269,7 +269,7 @@
             this.Controls.Add(this.PaymentDescriptionTextBox);
             this.Controls.Add(this.AboutButton);
             this.Controls.Add(this.PreferencesButton);
-            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.LogoutButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -283,6 +283,7 @@
             this.Controls.Add(this.LabelWalletAddress);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox3);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.Text = "SHC Harrier Coin Core Wallet C#";
@@ -312,7 +313,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button LoginButton;
+        private System.Windows.Forms.Button LogoutButton;
         private System.Windows.Forms.Button PreferencesButton;
         private System.Windows.Forms.Button AboutButton;
         private System.Windows.Forms.TextBox PaymentDescriptionTextBox;

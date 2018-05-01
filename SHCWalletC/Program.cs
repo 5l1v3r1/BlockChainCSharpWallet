@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using SHCWalletC.GUI;
+using SHCWalletC.GUI.WindowsForms;
 
 namespace SHCWalletC
 {
@@ -11,7 +12,7 @@ namespace SHCWalletC
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+            Application.Run(new Login());
         }
     }
 }
