@@ -10,6 +10,9 @@ The GitHub repository for the wallet is split into 2 parts: <BR>
 *The core code, this contains all the required classes and logics, independent of which GUI tool is chosen<BR>
 *The GUI, which can be multiple GUI tools, starting with the Windows Forms, and then moving the GUI to Xamarin cross platform using the core code
 <BR><BR>
+  <B>Configuration</b><BR><BR>
+Simply change the config.cs file which can be found under SHCWalletC/config.cs to the appropriate needs.
+<BR><BR>
 <B>References</B><BR><BR>
 WEBSITE:    http://harrier.tech (Maintained by Jarad Clouston)<BR>
 GITHUB:     https://github.com/GrumpyBum/harrier.coin<BR><BR>
