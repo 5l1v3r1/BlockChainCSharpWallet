@@ -54,8 +54,9 @@ namespace SHCWalletC.GUI
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the Form2 class
             Login loginForm = new Login();
+
+            WalletData = null;  //Clear data
 
             // Show the settings form
             loginForm.Show();
@@ -65,7 +66,6 @@ namespace SHCWalletC.GUI
 
         private void PreferencesButton_Click(object sender, EventArgs e)
         {
-            // Create a new instance of the Form2 class
             Pref PrefForm = new Pref();
 
             // Show the settings form
