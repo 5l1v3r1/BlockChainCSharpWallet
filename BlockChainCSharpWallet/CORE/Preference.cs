@@ -2,7 +2,7 @@
 using System;
 using System.Runtime.Serialization.Formatters.Binary;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     [Serializable]
     class Preference

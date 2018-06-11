@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     public class SendTransaction
     {

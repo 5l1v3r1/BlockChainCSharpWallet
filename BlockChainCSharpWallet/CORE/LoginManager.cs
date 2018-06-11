@@ -1,9 +1,8 @@
-﻿using SHCWalletC.CORE;
-using SHCWalletC.GUI;
+﻿using BlockChainCSharpWallet.GUI;
 using System;
 using System.IO;
 
-namespace SHCWalletC
+namespace BlockChainCSharpWallet.CORE
 {
     class LoginManager
     {

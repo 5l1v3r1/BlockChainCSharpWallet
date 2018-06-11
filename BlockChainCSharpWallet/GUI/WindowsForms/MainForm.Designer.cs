@@ -1,4 +1,4 @@
-﻿namespace SHCWalletC.GUI
+﻿namespace BlockChainCSharpWallet.GUI
 {
     partial class MainForm
     {

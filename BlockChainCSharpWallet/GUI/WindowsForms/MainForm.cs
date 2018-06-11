@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Windows.Forms;
-using SHCWalletC.CORE;
-using SHCWalletC.GUI.WindowsForms;
+using BlockChainCSharpWallet.CORE;
+using BlockChainCSharpWallet.GUI.WindowsForms;
 
-namespace SHCWalletC.GUI
+namespace BlockChainCSharpWallet.GUI
 {
     public partial class MainForm : Form
     {
@@ -86,7 +86,7 @@ namespace SHCWalletC.GUI
 
         private void button2_Click(object sender, EventArgs e)
         {
-            SHCWalletC.CORE.RPCConnectionManager.SendRPCJson("GetStatus");
+            RPCConnectionManager.SendRPCJson("GetStatus");
         }
     }
 }

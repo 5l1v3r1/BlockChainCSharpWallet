@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
-using SHCWalletC.GUI;
-using SHCWalletC.GUI.WindowsForms;
+using BlockChainCSharpWallet.GUI;
+using BlockChainCSharpWallet.GUI.WindowsForms;
 
 namespace SHCWalletC
 {

@@ -3,7 +3,7 @@ using JsonRPC;
 using Newtonsoft.Json.Linq;
 using System.Collections;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     class RPCResultHelper
     {

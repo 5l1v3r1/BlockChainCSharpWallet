@@ -3,9 +3,8 @@ using JsonRPC;
 using Newtonsoft.Json.Linq;
 using System.Net;
 using System.IO;
-using SHCWalletC.CORE;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     public class RPCConnectionManager
     {

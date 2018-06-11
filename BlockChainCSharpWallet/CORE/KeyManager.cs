@@ -2,9 +2,10 @@
 using System.Text;
 using System;
 using Org.BouncyCastle.Crypto.Digests;
+using BlockChainCSharpWallet;
 
 
-namespace SHCWalletC
+namespace BlockChainCSharpWallet.CORE
 {
     class KeyManager
     {

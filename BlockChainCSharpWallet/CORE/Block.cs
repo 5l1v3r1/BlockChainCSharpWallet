@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     [Serializable]
     public class Block

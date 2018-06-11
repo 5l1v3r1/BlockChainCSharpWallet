@@ -1,6 +1,6 @@
 ﻿using QRCoder;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     class QRCodeManager
     {

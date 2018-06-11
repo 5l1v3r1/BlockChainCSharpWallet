@@ -3,7 +3,7 @@ using System;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Reflection;
 
-namespace SHCWalletC.CORE
+namespace BlockChainCSharpWallet.CORE
 {
     [Serializable]
     public class WalletData

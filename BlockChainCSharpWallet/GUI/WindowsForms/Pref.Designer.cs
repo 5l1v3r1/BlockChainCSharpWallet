@@ -1,4 +1,4 @@
-﻿namespace SHCWalletC.GUI.WindowsForms
+﻿namespace BlockChainCSharpWallet.GUI.WindowsForms
 {
     partial class Pref
     {

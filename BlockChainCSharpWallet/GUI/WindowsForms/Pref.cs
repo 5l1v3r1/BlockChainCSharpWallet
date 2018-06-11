@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using SHCWalletC.CORE;
+using BlockChainCSharpWallet.CORE;
 
-namespace SHCWalletC.GUI.WindowsForms
+namespace BlockChainCSharpWallet.GUI.WindowsForms
 {
     public partial class Pref : Form
     {

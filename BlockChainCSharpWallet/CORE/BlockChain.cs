@@ -1,7 +1,6 @@
 ﻿using System;
-using SHCWalletC.CORE;
 
-namespace SHCWalletC
+namespace BlockChainCSharpWallet.CORE
 {
     [Serializable]
     public class BlockChain
