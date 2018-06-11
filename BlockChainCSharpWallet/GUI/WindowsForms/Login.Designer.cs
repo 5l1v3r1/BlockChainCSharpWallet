@@ -141,9 +141,9 @@
             this.label3.ForeColor = System.Drawing.Color.LightGray;
             this.label3.Location = new System.Drawing.Point(210, 115);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(728, 39);
+            this.label3.Size = new System.Drawing.Size(612, 39);
             this.label3.TabIndex = 8;
-            this.label3.Text = "Welcome to the Harrier C# wallet, please login";
+            this.label3.Text = "Welcome to the C# wallet, please login";
             // 
             // Login
             // 

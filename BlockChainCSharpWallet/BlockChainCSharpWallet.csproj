@@ -110,7 +110,7 @@
     <Compile Include="JSON\Request.cs" />
     <Compile Include="JSON\Response.cs" />
     <Compile Include="CORE\RPCConnectionManager.cs" />
-    <Compile Include="CORE\SessionWebClient.cs">
+    <Compile Include="JSON\SessionWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">

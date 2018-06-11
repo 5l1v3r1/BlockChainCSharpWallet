@@ -5,9 +5,9 @@ using System.Net;
 using System.IO;
 using SHCWalletC.CORE;
 
-namespace SHCWalletC
+namespace SHCWalletC.CORE
 {
-    class RPCConnectionManager
+    public class RPCConnectionManager
     {
         //This class contains all code to interact with RPC
         public static GenericResponse SendRPCJson(string _method, string _params = "")

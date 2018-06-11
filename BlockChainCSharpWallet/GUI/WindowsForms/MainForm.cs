@@ -83,5 +83,10 @@ namespace SHCWalletC.GUI
             ProcessStartInfo sInfo = new ProcessStartInfo("http://harrier.tech/");
             Process.Start(sInfo);
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SHCWalletC.CORE.RPCConnectionManager.SendRPCJson("GetStatus");
+        }
     }
 }

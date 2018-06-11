@@ -46,6 +46,7 @@
             this.PreferencesButton = new System.Windows.Forms.Button();
             this.AboutButton = new System.Windows.Forms.Button();
             this.PaymentDescriptionTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -260,12 +261,23 @@
             this.PaymentDescriptionTextBox.Text = "Payment description";
             this.PaymentDescriptionTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(419, 225);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(209, 37);
+            this.button2.TabIndex = 21;
+            this.button2.Text = "TEST JSON call to daemon";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1017, 533);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.PaymentDescriptionTextBox);
             this.Controls.Add(this.AboutButton);
             this.Controls.Add(this.PreferencesButton);
@@ -286,7 +298,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainForm";
-            this.Text = "SHC Harrier Coin Core Wallet C#";
+            this.Text = "Core Wallet C#";
             this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -317,5 +329,6 @@
         private System.Windows.Forms.Button PreferencesButton;
         private System.Windows.Forms.Button AboutButton;
         private System.Windows.Forms.TextBox PaymentDescriptionTextBox;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -20,7 +20,7 @@ namespace SHCWalletC
             {
                 KeysClass = KeyManager.GenerateKeySet(_passCode, _walletName);
                 WalletDataCreate = new WalletData();
-                WalletDataCreate.CreateNewWalletData(KeysClass, _passCode, _walletName);
+                WalletDataCreate = WalletDataCreate.CreateNewWalletData(KeysClass, _passCode, _walletName);
 
                 return WalletDataCreate;
             }
